@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      #- postgres_data:/var/lib/postgresql/data
       - ./db.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
@@ -85,5 +85,5 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/db_cuentas
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     restart: on-failure
-  volumes:
-    postgres_data:
+  #volumes:
+    #postgres_data:
